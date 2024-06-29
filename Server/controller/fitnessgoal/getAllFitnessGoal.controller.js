@@ -1,15 +1,13 @@
 import { FitnessGoal } from "../../models/index.js";
 import ApiResponse from "../../utils/apiResponse.js";
 
-export const GetFitnessGoal = async (req, res) => {
+export const GetAllFitnessGoal = async (req, res) => {
 
     const apiResponse = new ApiResponse(res);
 
     try {
 
-        const { fitness_goal } = req.params;
-
-        const Data = await FitnessGoal.find({ fitness_goal: fitness_goal });
+        const Data = await FitnessGoal.find();
 
         return apiResponse.success(`Fitness goal data fetched successfully!`, true, 200, Data);
 
@@ -18,6 +16,5 @@ export const GetFitnessGoal = async (req, res) => {
         console.log(error.stack);
         return apiResponse.error("Internal Server Error", 500);
     }
-
 
 }

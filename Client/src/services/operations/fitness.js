@@ -9,7 +9,11 @@ class FitnessGoal {
         return response;
     }
 
+    async get_all_fitness() {
+        const response = await apiConnector("GET", Fitness.GET_ALL_FITNESS);
 
+        return response;
+    }
 }
 
 const fitnessGoal = new FitnessGoal();

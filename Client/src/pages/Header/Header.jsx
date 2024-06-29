@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { FaUserCircle } from "react-icons/fa";
 
@@ -17,26 +18,26 @@ const Header = () => {
                     <nav className="ml-4">
                         <ul className="flex space-x-4 text-orange-800 font-semibold">
                             <li>
-                                <a href="#" className="inline-block">Home</a>
+                                <Link to="/" className="inline-block">Home</Link>
                                 <span className="text-gray-500 px-2">|</span>
                             </li>
                             <li>
-                                <a href="#" className="inline-block">Fitness Category</a>
+                                <Link to="/fitness-category" className="inline-block">Fitness Category</Link>
                                 <span className="text-gray-500 px-2">|</span>
                             </li>
                             <li>
-                                <a href="#" className="inline-block">Nutrition & Diet Plan</a>
+                                <Link to="/nutrition-diet-plan" className="inline-block">Nutrition & Diet Plan</Link>
                                 <span className="text-gray-500 px-2">|</span>
                             </li>
                             <li>
-                                <a href="#" className="inline-block">Contact</a>
+                                <Link to="/contact" className="inline-block">Contact</Link>
                             </li>
                         </ul>
                     </nav>
                 </div>
-                <div className="flex  justify-center items-center">
-                    <FaUserCircle size={30}/>
-                    <span className="text-black font-semibold  text-lg ml-2">{username}</span>
+                <div className="flex justify-center items-center">
+                    <FaUserCircle size={30} />
+                    <span className="text-black font-semibold text-lg ml-2">{username}</span>
                 </div>
             </div>
         </header>

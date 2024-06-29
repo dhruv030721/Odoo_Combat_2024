@@ -9,16 +9,15 @@ const fitnessgoalSchema = mongoose.Schema({
     category: {
         type: String
     },
+    image: {
+        type: String,
+    },
+    descriptin: {
+        type: String
+    },
     resources: [
         {
-            _id: false,
-            
-            name: {
-                type: String
-            },
-            link: [{
-                type: String
-            }]
+            type: String
         }
     ]
 })

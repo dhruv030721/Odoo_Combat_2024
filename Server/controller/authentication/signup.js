@@ -7,7 +7,9 @@ export const signup = async (req, res) => {
     const apiResponse = new ApiResponse(res);
 
     try {
+        console.log(req.body);
         const { name, dob, mobile_number, email, age, gender, weight, height, fitnessgoal, password } = req.body;
+
 
         if (!name || !dob || !age || !gender || !weight || !height || !password) {
             return apiResponse.error("Validation Failed!", 403);

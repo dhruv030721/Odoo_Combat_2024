@@ -17,6 +17,16 @@ class Authentication {
     }
 
 
+    async register(formData) {
+        const body = formData;
+
+        const response = await apiConnector("POST", Auth.REGISTER_API, body);
+
+        return response;
+
+    }
+
+
 }
 
 

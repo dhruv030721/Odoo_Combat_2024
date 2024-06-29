@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import store from './slices/store.js'
 import App from "./App.jsx";
 import { Toaster } from 'react-hot-toast';
-import { Login, AuthLayout, Home } from "./pages/index.js";
+import { Login, AuthLayout, Home, Signup, Fitnesscategory, FitnessGoalDetails } from "./pages/index.js";
 
 
 const router = createBrowserRouter(
@@ -14,8 +14,11 @@ const router = createBrowserRouter(
     <>
       <Route path='/' element={<AuthLayout authentication ><App /></AuthLayout>}>
         <Route path='/' element={<Home />} />
+        <Route path='/fitness-category' element={<Fitnesscategory />} />
+        <Route path="/fitness-goal/:category" element={<FitnessGoalDetails />} /> {/* Dynamic route */}
       </Route>
       <Route path='/login' element={<Login />} />
+      <Route path='/register' element={<Signup />} />
     </>
   )
 )
