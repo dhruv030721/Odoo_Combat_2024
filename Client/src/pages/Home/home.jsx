@@ -57,7 +57,7 @@ const Home = () => {
             <section className='my-10 flex flex-col gap-y-5'>
                 <div className='flex gap-x-5 text-orange-900'>
                     <MdOutlineFitnessCenter size={25} />
-                    <h1 className='font-bold'>Some Featured Exercises Related to Your Fitness Goal</h1>
+                    <h1 className='font-bold'>Some Featured Exercise Video Related to Your Fitness Goal</h1>
                 </div>
 
                 <div className='text-orange-900 font-bold'>
