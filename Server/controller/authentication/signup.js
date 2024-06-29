@@ -1,24 +1,38 @@
-import { User } from "../../models/index.js"
+import { User } from "../../models/index.js";
 import ApiResponse from "../../utils/apiResponse.js";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 
 export const signup = async (req, res) => {
+    const apiResponse = new ApiResponse(res);
 
     try {
+        const { name, dob, mobile_number, email, age, gender, weight, height, fitnessgoal, password } = req.body;
 
-        const { name, dob, mobile_number, email, age, gender, weight, height } = req.body;
-
-        if (!name || !dob || !age || !gender || !weight || !height) {
-            return res.status(403).json({
-                success: false,
-                message: "Validation Failed!"
-            })
+        if (!name || !dob || !age || !gender || !weight || !height || !password) {
+            return apiResponse.error("Validation Failed!", 403);
         }
 
         const UserInstance = await User.findOne({ email: email });
 
-        if (!UserInstance) {
-            return ApiResponse.success("User already exist!", 400);
+        if (UserInstance) {
+            return apiResponse.error("User already exists!", 400);
         }
+
+        const payload = {
+            name: name,
+            email: email,
+            mobile_number: mobile_number
+        }
+
+        const token = jwt.sign(payload, process.env.JWT_SECRET);
+
+        const cookie = {
+            name: "user_token",
+            value: token
+        }
+
+        const encryptedPassword = await bcrypt.hash(password, 10);
 
         await User.create({
             name,
@@ -26,17 +40,16 @@ export const signup = async (req, res) => {
             mobile_number,
             email,
             age,
+            password: encryptedPassword,
             gender,
             weight,
-            height
-        })
+            height,
+            fitnessgoal
+        });
 
-        return ApiResponse.success("User Signup Successfully!", true, 200);
-
-
+        return apiResponse.successWithToken("User signup successfully!", true, 200, token, [cookie]);
     } catch (error) {
         console.log(error);
+        return apiResponse.error("An error occurred during signup.", 500);
     }
-
-
-}   
+};

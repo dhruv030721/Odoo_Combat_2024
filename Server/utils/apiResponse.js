@@ -3,16 +3,32 @@ class ApiResponse {
         this.res = res;
     }
 
-    // Method to handle successful responses
-    success(data, message = "Request was successful", success = false, statusCode = 200) {
+    success(message, status, statusCode, data = null) {
+        const response = {
+            status: status,
+            message: message
+        };
+
+        if (data !== null) {
+            response.data = data;
+        }
+
+        this.res.status(statusCode).json(response);
+    }
+
+    successWithToken(message, status, statusCode, token = null, cookies = []) {
+        cookies.forEach(cookie => {
+            const { name, value, options } = cookie;
+            this.res.cookie(name, value, options);
+        });
+
         this.res.status(statusCode).json({
-            status: false,
+            status: status,
             message: message,
-            data: data
+            token: token
         });
     }
 
-    // Method to handle errors
     error(error, statusCode = 500) {
         let errorMessage = 'An unknown error occurred';
         if (typeof error === 'string') {

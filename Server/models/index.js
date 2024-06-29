@@ -1,3 +1,4 @@
-import User from "./user.js";
+import User from "./user.model.js";
+import FitnessGoal from "./fitnessgoal.model.js";
 
-export { User };
+export { User, FitnessGoal };

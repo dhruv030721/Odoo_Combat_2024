@@ -1,5 +1,5 @@
 import mongoose, { mongo } from "mongoose";
-import { genderENUM } from "./customDataType.js"
+import { genderENUM, fitnessgoalENUM } from "./customDataType.js"
 
 const userSchema = mongoose.Schema({
     name: {
@@ -17,8 +17,15 @@ const userSchema = mongoose.Schema({
     email: {
         type: String,
     },
+    role: {
+        type: String,
+        default: "User"
+    },
     age: {
         type: Number
+    },
+    password: {
+        type: String
     },
     gender: {
         type: String,
@@ -29,6 +36,10 @@ const userSchema = mongoose.Schema({
     },
     height: {
         type: Number
+    },
+    fitnessgoal: {
+        type: String,
+        enum: fitnessgoalENUM
     }
 })
 
