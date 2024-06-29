@@ -1,4 +1,4 @@
-const BASE_URL = "/api/v1";
+const BASE_URL = "https://level-up-your-fitness.onrender.com/api/v1";
 
 export const Auth = {
     LOGIN_API: BASE_URL + '/login',
