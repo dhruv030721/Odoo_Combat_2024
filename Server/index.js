@@ -11,7 +11,7 @@ const app = express();
 dotenv.config();
 
 const corsOptions = {
-    origin: 'https://levelup-your-fitness.vercel.app/',
+    origin: 'https://levelup-your-fitness.vercel.app',
     optionsSuccessStatus: 200,
 };
 
