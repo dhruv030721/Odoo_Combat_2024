@@ -3,11 +3,19 @@ import dotenv from "dotenv";
 import fitnessRouter from "./routes/routes.js";
 import dbConnect from "./config/database.js";
 import morgan from "morgan";
+import cors from "cors";
 
 const app = express();
 
 
 dotenv.config();
+
+const corsOptions = {
+    origin: 'https://level-up-your-fitness.onrender.com',
+    optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 4000;
 
