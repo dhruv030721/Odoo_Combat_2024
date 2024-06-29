@@ -11,16 +11,16 @@ const app = express();
 dotenv.config();
 
 const corsOptions = {
-    origin: 'https://level-up-your-fitness.onrender.com',
+    origin: 'https://levelup-your-fitness.vercel.app/',
     optionsSuccessStatus: 200,
 };
 
-app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 4000;
 
 
 app.use(express.json());
+app.use(cors(corsOptions));
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
 
 
