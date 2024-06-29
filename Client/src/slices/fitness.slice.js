@@ -4,7 +4,8 @@ const initialState =
 {
     status: false,
     fitnessGoalData: null,
-    allFitnessGoalData: null
+    allFitnessGoalData: null,
+    workout: null
 }
 
 
@@ -20,11 +21,15 @@ const fitnessSlice = createSlice({
             state.status = true;
             state.allFitnessGoalData = action.payload;
         },
+        set_workout: (state, action) => {
+            state.status = true;
+            state.workout = action.payload;
+        },
     }
 })
 
 
-export const { set_fitnessData, set_allfitnessData } = fitnessSlice.actions;
+export const { set_fitnessData, set_allfitnessData, set_workout} = fitnessSlice.actions;
 
 
 export default fitnessSlice.reducer;

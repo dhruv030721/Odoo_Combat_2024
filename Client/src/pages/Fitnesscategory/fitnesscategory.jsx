@@ -13,8 +13,6 @@ const FitnessCategory = () => {
     const id = useId();
     const [loading, setLoading] = useState(true);
 
-    console.log(allfitnessgoalData);
-
     useEffect(() => {
         (async () => {
             const response = await fitnessGoal.get_all_fitness();

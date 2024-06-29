@@ -1,10 +1,11 @@
 import { useState } from "react";
-import logo from "../../assets/logo.png";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
 import authentication from "../../services/operations/authentication";
-import { useNavigate } from "react-router-dom";
 import { login } from "../../slices/auth.slice";
-import { useDispatch } from "react-redux";
+
+import logo from "../../assets/logo.png";
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -84,14 +85,7 @@ function Login() {
                                 </div>
                             </div>
 
-                            <div className="flex items-center justify-between">
-                                <div className="text-sm">
-                                    <a href="#" className="font-medium text-black hover:text-indigo-500">
-                                        Forgot your password?
-                                    </a>
-                                </div>
-                            </div>
-
+                            {/* Removed forgot password link */}
                         </form>
                         <div>
                             <button
@@ -105,9 +99,9 @@ function Login() {
                         <div className="text-center">
                             <p className="mt-2 text-sm text-gray-600">
                                 {"Don't have an account? "}
-                                <a href="#" className="font-medium text-black hover:text-indigo-500">
+                                <Link to="/register" className="font-medium text-black hover:text-indigo-500">
                                     Register
-                                </a>
+                                </Link>
                             </p>
                         </div>
                     </div>

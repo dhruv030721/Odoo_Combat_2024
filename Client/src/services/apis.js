@@ -9,3 +9,8 @@ export const Fitness = {
     GET_FITNESS: BASE_URL + '/fitnessgoal/get_fitness/',
     GET_ALL_FITNESS: BASE_URL + "/fitnessgoal/get_all_fitness"
 }
+
+
+export const WorkoutAPI  = {
+    GET_WORKOUT : BASE_URL + '/workout/get_workout/'
+}

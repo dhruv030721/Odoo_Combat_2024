@@ -26,12 +26,12 @@ const Header = () => {
                                 <span className="text-gray-500 px-2">|</span>
                             </li>
                             <li>
-                                <Link to="/nutrition-diet-plan" className="inline-block">Nutrition & Diet Plan</Link>
-                                <span className="text-gray-500 px-2">|</span>
+                                <Link to="/nutrition" className="inline-block">Nutrition & Diet Plan</Link>
+                                {/* <span className="text-gray-500 px-2">|</span> */}
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link to="/contact" className="inline-block">Contact</Link>
-                            </li>
+                            </li> */}
                         </ul>
                     </nav>
                 </div>

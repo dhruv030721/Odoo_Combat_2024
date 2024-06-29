@@ -2,7 +2,7 @@ import { useState } from "react";
 import logo from "../../assets/logo.png";
 import toast from "react-hot-toast";
 import authentication from "../../services/operations/authentication";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { useDispatch } from "react-redux";
 
 function Register() {
@@ -203,13 +203,13 @@ function Register() {
                                 </div>
                             </div>
 
-                            <div className="flex items-center justify-between">
+                            {/* <div className="flex items-center justify-between">
                                 <div className="text-sm">
                                     <a href="#" className="font-medium text-black hover:text-indigo-500">
                                         Forgot your password?
                                     </a>
                                 </div>
-                            </div>
+                            </div> */}
 
                         </form>
                         <div>
@@ -224,9 +224,9 @@ function Register() {
                         <div className="text-center">
                             <p className="mt-2 text-sm text-gray-600">
                                 {"Already have an account? "}
-                                <a href="#" className="font-medium text-black hover:text-indigo-500">
+                                <Link to="/login" className="font-medium text-black hover:text-indigo-500">
                                     Login
-                                </a>
+                                </Link>
                             </p>
                         </div>
                     </div>
